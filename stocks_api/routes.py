@@ -9,7 +9,6 @@ def includeme(config):
     config.add_route('home', '/')
 
     router = ViewSetRouter(config)
-
     # path/endpoint, class we just defined/viewset, alias/routename
-    router.register('api/vq/stocks', StocksAPIView, 'stocks')
+    router.register('api/v1/stocks', StocksAPIView, 'stocks')
     # router.register('api/v1/auth', AuthAPIView, 'auth')

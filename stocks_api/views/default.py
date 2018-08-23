@@ -10,8 +10,8 @@ def home_view(request):
     """
     """
     # message should be a list of how to interact with API
-    message = 'Hello world'
-    return Response(body=message, content_type='text/plain', status=200)
+    message = 'hello world'
+    return Response(body=message, content_type='application/json', status=200)
 
 # define type of renderer
 

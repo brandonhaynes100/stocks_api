@@ -19,7 +19,7 @@ def main(global_config, **settings):
     config.include('.routes')
 
     # looks for any @view_config decorators, then will register at a view controller
-    # config.scan()
+    config.scan()
 
     # this is an HTTP server (Web Server Gateway Interface) - a form of server application
     return config.make_wsgi_app()
