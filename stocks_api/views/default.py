@@ -1,33 +1,22 @@
 from pyramid.response import Response
 from pyramid.view import view_config
-
-from sqlalchemy.exc import DBAPIError
-
-from ..models import MyModel
+# no itellisense for above means problem with virtual env,
 
 
-@view_config(route_name='home', renderer='../templates/mytemplate.jinja2')
-def my_view(request):
-    try:
-        query = request.dbsession.query(MyModel)
-        one = query.filter(MyModel.name == 'one').first()
-    except DBAPIError:
-        return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'one': one, 'project': 'stocks_api'}
+# configure a function that represents our homeroute, defined as forward slash
+# responsible for receiving a request, building a response, returning that response?
+@view_config(route_name='home', renderer='json', request_method='GET')
+def home_view(request):
+    """
+    """
+    # message should be a list of how to interact with API
+    message = 'hello world'
+    return Response(body=message, content_type='application/json', status=200)
+
+# define type of renderer
 
 
-db_err_msg = """\
-Pyramid is having a problem using your SQL database.  The problem
-might be caused by one of the following things:
+# what type of request methods can operate on this
 
-1.  You may need to run the "initialize_stocks_api_db" script
-    to initialize your database tables.  Check your virtual
-    environment's "bin" directory for this script and try to run it.
 
-2.  Your database server may not be running.  Check that the
-    database server referred to by the "sqlalchemy.url" setting in
-    your "development.ini" file is running.
-
-After you fix the problem, please restart the Pyramid application to
-try it again.
-"""
+# define a response
