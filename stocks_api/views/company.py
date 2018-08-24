@@ -4,14 +4,12 @@ from pyramid.response import Response
 
 
 class CompanyAPIViewset(APIViewSet):
-    def retrieve(self, request, id=None):
+    def retrieve(self, request, id):
         # http :6543/api/v1/company/{id}/
-        return Response(
-            json={'message Provided a single resource'}
-        )
+        return Response(json={'message': 'Provided a single resource'})
 
 
-    # # an example
+    # an example
     # def list(self, request):
-    #     # http :6543/api/v1/company/
+    #     http :6543/api/v1/company/
     #     pass
