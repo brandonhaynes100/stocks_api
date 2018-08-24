@@ -6,7 +6,13 @@ from pyramid.response import Response
 class CompanyAPIViewset(APIViewSet):
     def retrieve(self, request, id):
         # http :6543/api/v1/company/{id}/
-        return Response(json={'message': 'Provided a single resource'})
+
+        # Use the 'id' to lookup that resource in the DB,
+        # Formulate a response and send it back to the client
+        return Response(
+            json={'message': 'Provided a single resource'},
+            status=200
+        )
 
 
     # an example

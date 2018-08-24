@@ -1,4 +1,4 @@
 from .company import CompanyAPIViewset
-from .stocks import StocksAPIViewset
+from .stocks import StockAPIViewset
 
-__all__ = [CompanyAPIViewset, StocksAPIViewset]
+__all__ = [CompanyAPIViewset, StockAPIViewset]
