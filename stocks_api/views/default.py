@@ -10,8 +10,15 @@ def home_view(request):
     """
     """
     # message should be a list of how to interact with API
-    message = 'hello world'
-    return Response(body=message, content_type='application/json', status=200)
+    message = '''
+        GET / - Base API route\n
+        POST /api/v1/auth/ - Register a new account\n
+        GET /api/v1/auth/ - Login to an existing account\n
+        GET /api/v1/weather/ - Retrieve all weather information\n
+        GET /api/v1/weather/<int>/ - Retrieve specific weather record\n
+        POST /api/v1/weather/ - Create new weather record\n
+        DELETE /api/v1/weather/<int>/ - Remove existing weather record\n '''
+    return Response(body=message, status=200)
 
 # define type of renderer
 
