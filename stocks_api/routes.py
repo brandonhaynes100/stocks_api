@@ -1,5 +1,6 @@
-from pyramid_restful.routers import ViewSetRouter
 from .views import CompanyAPIViewset, StockAPIViewset
+from pyramid_restful.routers import ViewSetRouter
+from .views.auth import AuthAPIViewset
 # from .views.stocks import StocksAPIView
 # from .views.auth import AuthAPIView
 
@@ -11,6 +12,6 @@ def includeme(config):
 
     router = ViewSetRouter(config)
     # path/endpoint, class we just defined/viewset, alias/routename
+    router.register('api/v1/auth/{auth}', AuthAPIViewset, 'auth')
     router.register('api/v1/company', CompanyAPIViewset, 'company')
     router.register('api/v1/stocks', StockAPIViewset, 'stocks')
-    # router.register('api/v1/auth', AuthAPIView, 'auth')

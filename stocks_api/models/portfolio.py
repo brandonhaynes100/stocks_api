@@ -1,4 +1,5 @@
 from datetime import datetime as dt
+from sqlalchemy.orm import relationship
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy import (
     Column,
@@ -17,6 +18,9 @@ class Portfolio(Base):
     name = Column(Text, nullable=False)
     date_created = Column(DateTime, default=dt.now())
     date_updated = Column(DateTime, default=dt.now(), onupdate=dt.now())
+
+    account_id = Column(Integer, ForeignKey('account.id'), nullable=False)
+    account = relationship('Account', back_populates='location')
 
     @classmethod
     def new(cls, request=None, **kwargs):
