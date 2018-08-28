@@ -11,10 +11,6 @@ from sqlalchemy import (
 from .meta import Base
 
 
-# Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
-# Define two class methods on your Portfolio class:
-# one(): Retrieve a single instance from the database by the primary key for that record
-# new(): Create a single new instance of the Portfolio class
 class Portfolio(Base):
     __tablename__ = 'portfolios'
     id = Column(Integer, primary_key=True)
@@ -24,6 +20,8 @@ class Portfolio(Base):
 
     @classmethod
     def new(cls, request=None, **kwargs):
+        """ new(): Create a single new instance of the Portfolio class
+        """
         if request.dbsession is None:
             raise DBAPIError
 
@@ -37,8 +35,12 @@ class Portfolio(Base):
 
     @classmethod
     def one(cls, request=None, pk=None):
+        """ one(): Retrieve a single instance from the database by the primary key for that record
+        """
         if request.dbsession is None:
             raise DBAPIError
+
+        return request.dbsession.query(cls).get(pk)
 
 
 Index('my_index', Portfolio.name, unique=True, mysql_length=255)
