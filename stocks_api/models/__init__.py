@@ -9,6 +9,9 @@ import zope.sqlalchemy
 # This is just for reference
 # from .mymodel import MyModel  # flake8: noqa
 from .portfolio import Portfolio
+from .role import AccountRole
+from .accounts import Account
+from .associations import roles_association
 
 # run configure_mappers after defining all of the models to ensure
 # all relationships can be setup
