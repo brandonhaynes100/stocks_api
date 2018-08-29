@@ -1,5 +1,18 @@
 # TODO
-from .weather_location import weather_location
+# example code
+# from .weather_location import weather_location
+from sqlalchemy.exc import DBAPIError
+from .meta import Base
+from datetime import datetime as dt
+from sqlalchemy import (
+    Column,
+    Index,
+    Integer,
+    String,
+    Text,
+    DateTime,
+)
+
 from .associations import roles_association
 from sqlalchemy.orm import
 # some stuff up here
@@ -11,7 +24,8 @@ class Account(Base):
     email = Column(String(255), nullable=False, unique=True)
     password = Column(Text, nullable=False)
     # TODO
-    locations = relationship(WeatherLocation, back_populates='accounts')
+    # example code
+    # locations = relationship(WeatherLocation, back_populates='accounts')
     roles = relationship(AccountRole, secondary=roles_association, back_populates='accounts')
 
     date_created = Column(DateTime, default=dt.now())

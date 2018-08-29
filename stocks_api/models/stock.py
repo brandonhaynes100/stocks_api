@@ -20,6 +20,7 @@ class Stock(Base):
     # The following attributes are being defined to mirror the data that will be retrieved from the 3rd party API
     id = Column(Integer, primary_key=True)
     symbol = Column(Text)
+    companyName = Column(Text)
     exchange = Column(Text)
     industry = Column(Text)
     website = Column(Text)
