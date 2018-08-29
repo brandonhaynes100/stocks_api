@@ -1,12 +1,26 @@
 
 
-##Lab 12: Model Relationships
+## Lab 13:
+- [ ] Install and configure the use of the pyramid_jwt library in your application, and configure the Pyramid policies and permissions for your views and routes
+- [ ] You will need to configure your RootACL class in the project’s __init__.py file before your associated permissions on the routes/views will take effect
+- In models/account.py:
+- [ ] Refactor your Account model with a __init__ method, which allows your users password to be hashed by bcrypt before being stored in the database
+- [ ] Create a check_credentials class method on your Account model which allows a verification of username and password, and returns None on validation failure or the Account instance on validation success
+- In the views/ directory, create a new file called auth.py
+- [ ] Add a new view controller class called AuthAPIView for defining your registration and login functionality
+- [ ] You view controller should enable a post for registration and a get for login
+- [ ] Each of these methods should construct and return a new JSON Web Token in the response, and Nothing else
+- [ ] If the registration or login fails, handle those exceptions correctly with an appropriate status code and JSON response
+- [ ] For example, if a user registers with an email that’s already registered in the system you will send a 409 Conflict status code with an appropriate message in the response body
+
+## Lab 12: Model Relationships
 - [ ] Using the diagram below as a guide update your models/ directory with the new account.py, role.py, and associations.py files, and create each of the tables
 - [ ] Ensure that your model relationships are functional
 - [ ] Ensure that you’ve taken advantage of the SQLAlchemy relationship method to create additional functionality within your code base for accessing those new relationships
 - [ ] Add your new models to the Initialization Script, drop and recreate your DB, and initialize again with your new tables
 
-##Lab 11:
+
+## Lab 11:
 - [x] In your models/ directory, create a file called portfolio.py.
 - You will create a Portfolio class with the following attributes:
 - [x] id, name, date_created, date_updated
@@ -32,10 +46,11 @@
 - [ ] Using your model class methods, formulate an appropriate serialized response for each available endpoint / method that we configured in our last lab for this application. You may want to refer back to the LAB.md specification for each of those endpoints to review the functionality required.
 
 
-##Lab 09: Deployment
+## Lab 09: Deployment
 - [ ] Deploy your API to AWS!
 
-##Lab 08: Pyramid Web Framework
+
+## Lab 08: Pyramid Web Framework
 - [ ] Disable the unnecessary functionality of your scaffold, by commenting out the include() statements in your __init__.py:main() function; we will not be using Jinja2 templating (Delete that line) or Models for the time being
 - [ ] Delete the templates/ directory
 - [ ] Remove the contents of default.py and notfound.py
