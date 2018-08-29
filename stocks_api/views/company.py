@@ -1,6 +1,29 @@
 
+# TODO
+from ..models.schemas import WeatherLocationSchema
+from ..models import WeatherLocation
+
 from pyramid_restful.viewsets import APIViewSet
+from sqlalchemy.exc import IntegrityError, DataError
 from pyramid.response import Response
+from pyramid.view import view_config
+import requests
+import json
+import os
+
+
+
+class NameLookupAPIView(APIViewSet):
+    def retrieve(self, request, name):
+        """
+        """
+        # TODO
+        url = ''.format(
+            request.matchdict['name'],
+            # TODO
+            ''
+        )
+        response = requests.get(url)
 
 
 class CompanyAPIViewset(APIViewSet):
