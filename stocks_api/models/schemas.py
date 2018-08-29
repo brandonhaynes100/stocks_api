@@ -23,7 +23,7 @@ class PortfolioSchema(ModelSchema):
     # This is really just an example of multiple fields being defined on this schema
     roles = fields.Nested(AccountRoleSchema, many=True, only='name')
     account = fields.Nested(AccountSchema, exclude=(
-        'password', 'locations', 'roles', 'date_created', 'date_updated'
+        'password', 'portfolios', 'roles', 'date_created', 'date_updated'
     ))
 
     class Meta:

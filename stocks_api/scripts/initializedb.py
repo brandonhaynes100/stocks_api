@@ -15,7 +15,7 @@ from ..models import (
     get_session_factory,
     get_tm_session,
     )
-from ..models import Portfolio, AccountRole, Account, roles_association
+from ..models import Portfolio, Stock, AccountRole, Account, roles_association
 
 
 def usage(argv):
