@@ -12,7 +12,7 @@ def main(global_config, **settings):
     config = Configurator(settings=settings)
     # when you pass a module using include() , it needs an includeme(config) function
     config.include('pyramid_restful')
-    # config.include('.models')
+    config.include('.models')
     config.include('.routes')
     # looks for any @view_config decorators, then will register at a view controller
     config.scan()

@@ -7,12 +7,13 @@ from pyramid_restful.routers import ViewSetRouter
 
 # ties class definition to routes
 def includeme(config):
+    # sets up the ability to use static directory
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('home', '/')
     # example code
     # config.add_route('lookup', '/api/v1/lookup/{zip}')
 
-    router = ViewSetRouter(config)
+    router = ViewSetRouter(config, trailing_slash=False)
     # example code
     # router.register('api/v1/location', WeatherLocationAPIView, 'location')
     # router.register('api/v1/lookup/{zip_code}', LocationLookupAPIView, 'lookup')
