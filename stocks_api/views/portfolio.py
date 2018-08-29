@@ -1,6 +1,6 @@
 # TODO
-# from ..models.schemas import WeatherLocationSchema
-# from ..models import WeatherLocation
+from ..models.schemas import PortfolioSchema
+from ..models import Portfolio
 from pyramid_restful.viewsets import APIViewSet
 from sqlalchemy.exc import IntegrityError, DataError
 from pyramid.response import Response
@@ -24,6 +24,32 @@ class NameLookupAPIView(APIViewSet):
 
 
 class PortfolioAPIViewset(APIViewSet):
+    # POST
+    def create(self, request):
+        """
+        """
+        try:
+            kwargs = json.loads(request.body)
+        except json.JSONDecodeError as e:
+            return Response(json=e.msg, status=400)
+
+        if 'name' not in kwargs:
+            return Response(json='Expected value; name', status=400)
+
+        try:
+            portfolio = Portfolio.new(request, **kwargs)
+        except IntegrityError:
+            return Response(json='Duplicate Key Error. Name already exists.', status=409)
+
+        schema = PortfolioSchema()
+        data = schema.dump(portfolio).data
+
+        return Response(json=data, status=201)
+        # return Response(
+        #     json={'message': 'Created a new resource.'},
+        #     status=201
+        # )
+
     # GET one
     def retrieve(self, request, id):
         return Response(
@@ -38,13 +64,16 @@ class PortfolioAPIViewset(APIViewSet):
             status=200
         )
 
-    # POST
-    def create(self, request):
-        return Response(
-            json={'message': 'Created a new resource.'},
-            status=201
-        )
-
     # DELETE
-    def destroy(self, request, id):
+    def destroy(self, request, id=None):
+        """
+        """
+        if not id:
+            return Response(json='Not Found', status=404)
+
+        try:
+            Portfolio.remove(request=request, pk=id)
+        except (DataError, AttributeError):
+            return Response(json='Not Found', status=404)
+
         return Response(status=204)
