@@ -7,29 +7,28 @@
 - [ ] Add your new models to the Initialization Script, drop and recreate your DB, and initialize again with your new tables
 
 ##Lab 11:
-- [ ] In your models/ directory, create a file called portfolio.py.
+- [x] In your models/ directory, create a file called portfolio.py.
 - You will create a Portfolio class with the following attributes:
-- [ ] id, name, date_created, date_updated
-- [ ] Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
+- [x] id, name, date_created, date_updated
+- [x] Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
 - Define two class methods on your Portfolio class:
-- [ ] one(): Retrieve a single instance from the database by the primary key for that record
-- [ ] new(): Create a single new instance of the Portfolio class
+- [x] one(): Retrieve a single instance from the database by the primary key for that record
+- [x] new(): Create a single new instance of the Portfolio class
 - In your models/ directory, create a file called stock.py.
-- [ ] You will create a Stock class with the following attributes, which are being defined to mirror the data that you will retrieve from your 3rd party API:
-- [ ] id, symbol, companyName, exchange, industry, website, description, CEO, issueType, sector, date_created, date_updated
-- [ ] Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
+- [x] You will create a Stock class with the following attributes, which are being defined to mirror the data that you will retrieve from your 3rd party API:
+- [x] id, symbol, companyName, exchange, industry, website, description, CEO, issueType, sector, date_created, date_updated
+- [x] Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
 - Define three class methods on your Stock class:
-- [ ] one(): Retrieve a single instance from the database by the primary key for that record
-- [ ] new(): Create a single new instance of the Stock class
-- [ ] destroy(): Remove a single instance from the database by the primary key for that record
+- [x] one(): Retrieve a single instance from the database by the primary key for that record
+- [x] new(): Create a single new instance of the Stock class
+- [x] destroy(): Remove a single instance from the database by the primary key for that record
 - In your models/ directory, create a file called schemas.py for your model serializers.
-- [ ] You will define two Marshmallow schemas in this file, one for PortfolioSchema and one for StockSchema.
+- [x] You will define two Marshmallow schemas in this file, one for PortfolioSchema and one for StockSchema.
 - In your views/portfolio.py file, you will further define the following View Class Controllers:
 - [ ] PortfolioAPIView - Controller interactions with your Portfolio model/schema
 - [ ] StockAPIView - Controller interactions with your Stock model/schema
 - [ ] CompanyAPIView - 3rd-party API interactions for requesting company data for your portfolio
-- You will be using the requests library and a free API from IEX TRADING, which does not require the use of an API key at this point.
-- [ ] We are specifically interested in the Company Info and the Time Series info, both of which are accessible via an API call using a companies Stock Symbol.
+- You will be using the requests library and a free API from IEX TRADING, which does not require the use of an API key at this point. We are specifically interested in the Company Info and the Time Series info, both of which are accessible via an API call using a companies Stock Symbol.
 - [ ] Using your model class methods, formulate an appropriate serialized response for each available endpoint / method that we configured in our last lab for this application. You may want to refer back to the LAB.md specification for each of those endpoints to review the functionality required.
 
 

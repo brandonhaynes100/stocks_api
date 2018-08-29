@@ -10,6 +10,7 @@ roles_association = Table(
 
 
 # Equivalent to above
+# from .meta import Base
 # class RolesAssociation(Base):
 #     __tablename__ = 'roles_association'
 #     account_id = Column(Integer, ForeignKey('accounts.id'))

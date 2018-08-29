@@ -5,26 +5,26 @@ from ..models import Account
 import json
 
 
-class AuthAPIViewset(APIViewSet):
+class AuthAPIView(APIViewSet):
     def create(self, request, auth=None):
         """
         """
-        data = json.loads(request.body)
+        data = json.loads(request.body.decode())
 
         if auth == 'register':
             try:
-                user = Account.new(
+                account = Account.new(
                     request,
-                    data['email'],
-                    data['password'])
+                    email=data['email'],
+                    password=data['password'])
             except (IntegrityError, KeyError):
                 return Response(json='Bad Request', status=400)
 
-            # TODO: Refactor this to use JSON Web Token
+            # TODO: Refactor this for authentication / JSON Web Token tomorrow
             return Response(json='Created', status=201)
 
         if auth == 'login':
+            # TODO: Implement this for login features tomorrow
             pass
 
-        return Response(json='Bad Request', status=404)
-
+        return Response(json='Not Found', status=404)
