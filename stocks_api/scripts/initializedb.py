@@ -15,8 +15,7 @@ from ..models import (
     get_session_factory,
     get_tm_session,
     )
-# TODO
-from ..models import MyModel, Portfolio, Schemas, Stock, AccountRole
+from ..models import Portfolio, AccountRole, Account, roles_association
 
 
 def usage(argv):
@@ -48,8 +47,4 @@ def main(argv=sys.argv):
         roles = ['admin', 'view']
         for role in roles:
                 model = AccountRole(name=role)
-                # TODO
-                db
-
-        model = MyModel(name='one', value=1)
-        dbsession.add(model)
+                dbsession.add(model)

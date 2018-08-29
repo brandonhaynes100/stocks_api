@@ -7,6 +7,7 @@ from sqlalchemy import (
     Integer,
     Text,
     DateTime,
+    ForeignKey,
 )
 
 from .meta import Base
@@ -19,8 +20,8 @@ class Portfolio(Base):
     date_created = Column(DateTime, default=dt.now())
     date_updated = Column(DateTime, default=dt.now(), onupdate=dt.now())
 
-    account_id = Column(Integer, ForeignKey('account.id'), nullable=False)
-    account = relationship('Account', back_populates='location')
+    account_id = Column(Integer, ForeignKey('accounts.id'), nullable=False)
+    account = relationship('Account', back_populates='portfolios')
 
     @classmethod
     def new(cls, request=None, **kwargs):

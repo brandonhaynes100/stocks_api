@@ -1,9 +1,12 @@
 # TODO
 # example code
 # from .weather_location import weather_location
+from .associations import roles_association
+from sqlalchemy.orm import relationship
 from sqlalchemy.exc import DBAPIError
-from .meta import Base
 from datetime import datetime as dt
+from .role import AccountRole
+from .meta import Base
 from sqlalchemy import (
     Column,
     Index,
@@ -12,10 +15,6 @@ from sqlalchemy import (
     Text,
     DateTime,
 )
-
-from .associations import roles_association
-from sqlalchemy.orm import
-# some stuff up here
 
 
 class Account(Base):

@@ -11,7 +11,6 @@ def includeme(config):
     config.add_route('home', '/')
     # example code
     # config.add_route('lookup', '/api/v1/lookup/{zip}')
-    # config.add_route('lookup', '/api/v1/lookup/{name}')
 
     router = ViewSetRouter(config)
     # example code
@@ -19,9 +18,9 @@ def includeme(config):
     # router.register('api/v1/lookup/{zip_code}', LocationLookupAPIView, 'lookup')
 
     # path/endpoint, class we just defined/viewset, alias/routename
-    router.register('api/v1/company', CompanyAPIViewset, 'company')
-    router.register('api/v1/lookup/{name}', NameLookupAPIView, 'lookup')
-    router.register('api/v1/stocks', StockAPIViewset, 'stocks')
     router.register('api/v1/portfolio', PortfolioAPIViewset, 'portfolio')
+    router.register('api/v1/lookup/{name}', NameLookupAPIView, 'lookup')
+    router.register('api/v1/company', CompanyAPIViewset, 'company')
+    router.register('api/v1/stocks', StockAPIViewset, 'stocks')
     # NOTE: Discuss permissions on location route and parameter to auth route (optionally add permissions to auth)
     router.register('api/v1/auth/{auth}', AuthAPIViewset, 'auth')

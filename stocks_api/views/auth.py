@@ -7,6 +7,8 @@ import json
 
 class AuthAPIView(APIViewSet):
     def create(self, request, auth=None):
+        """
+        """
         data = json.loads(request.body.decode())
 
         if auth == 'register':
@@ -26,4 +28,3 @@ class AuthAPIView(APIViewSet):
             pass
 
         return Response(json='Not Found', status=404)
-

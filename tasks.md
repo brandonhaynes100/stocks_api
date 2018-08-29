@@ -17,11 +17,11 @@
 - In your models/ directory, create a file called stock.py.
 - [x] You will create a Stock class with the following attributes, which are being defined to mirror the data that you will retrieve from your 3rd party API:
 - [x] id, symbol, companyName, exchange, industry, website, description, CEO, issueType, sector, date_created, date_updated
-- [ ] Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
+- [x] Define each attribute of your class with the appropriate data type and any further restrictions or definitions that each attribute should carry with it into the database table.
 - Define three class methods on your Stock class:
-- [ ] one(): Retrieve a single instance from the database by the primary key for that record
-- [ ] new(): Create a single new instance of the Stock class
-- [ ] destroy(): Remove a single instance from the database by the primary key for that record
+- [x] one(): Retrieve a single instance from the database by the primary key for that record
+- [x] new(): Create a single new instance of the Stock class
+- [x] destroy(): Remove a single instance from the database by the primary key for that record
 - In your models/ directory, create a file called schemas.py for your model serializers.
 - [x] You will define two Marshmallow schemas in this file, one for PortfolioSchema and one for StockSchema.
 - In your views/portfolio.py file, you will further define the following View Class Controllers:
