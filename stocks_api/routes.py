@@ -24,4 +24,4 @@ def includeme(config):
     router.register('api/v1/company', CompanyAPIViewset, 'company')
     router.register('api/v1/stocks', StockAPIViewset, 'stocks')
     # NOTE: Discuss permissions on location route and parameter to auth route (optionally add permissions to auth)
-    router.register('api/v1/auth/{auth}', AuthAPIViewset, 'auth')
+    router.register('api/v1/auth/{auth}', AuthAPIViewset, 'auth', permission='admin')

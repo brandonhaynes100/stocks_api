@@ -1,5 +1,6 @@
 # TODO
 from ..models.schemas import PortfolioSchema
+from ..models import Account
 from ..models import Portfolio
 from pyramid_restful.viewsets import APIViewSet
 from sqlalchemy.exc import IntegrityError, DataError
@@ -35,6 +36,11 @@ class PortfolioAPIViewset(APIViewSet):
 
         if 'name' not in kwargs:
             return Response(json='Expected value; name', status=400)
+
+        # This is new, and required for managing model relationships
+        if request.authenticated_userid:
+            account = Account.one(request, request.authenticated_userid)
+            kwargs['account_id'] = account.id
 
         try:
             portfolio = Portfolio.new(request, **kwargs)
