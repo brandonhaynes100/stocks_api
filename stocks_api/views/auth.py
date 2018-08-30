@@ -1,3 +1,4 @@
+# from pyramid_restful.viewsets import APIViewSet
 from pyramid_restful.viewsets import APIViewSet
 from sqlalchemy.exc import IntegrityError
 from pyramid.response import Response
@@ -5,9 +6,9 @@ from ..models import Account
 import json
 
 
-class AuthAPIView(APIViewSet):
+class AuthAPIViewset(APIViewSet):
     def create(self, request, auth=None):
-        """
+        """ Displays the information from the 3rd-party API. This method is a create method.
         """
         data = json.loads(request.body.decode())
 

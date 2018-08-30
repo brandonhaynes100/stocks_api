@@ -1,5 +1,5 @@
 from .views.auth import AuthAPIViewset
-from .views.company import CompanyAPIViewset, NameLookupAPIView
+from .views.company import CompanyAPIViewset
 from .views.stocks import StockAPIViewset
 from .views.portfolio import PortfolioAPIViewset
 from pyramid_restful.routers import ViewSetRouter
@@ -20,8 +20,9 @@ def includeme(config):
 
     # path/endpoint, class we just defined/viewset, alias/routename
     router.register('api/v1/portfolio', PortfolioAPIViewset, 'portfolio')
-    router.register('api/v1/lookup/{name}', NameLookupAPIView, 'lookup')
     router.register('api/v1/company', CompanyAPIViewset, 'company')
     router.register('api/v1/stocks', StockAPIViewset, 'stocks')
+    # viewing a single stock
+    # router.register('api/v1/lookup/{symbol}', SymbolLookupAPIView, 'lookup')
     # NOTE: Discuss permissions on location route and parameter to auth route (optionally add permissions to auth)
     router.register('api/v1/auth/{auth}', AuthAPIViewset, 'auth', permission='admin')

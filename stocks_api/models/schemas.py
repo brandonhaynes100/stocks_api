@@ -1,10 +1,10 @@
 from marshmallow_sqlalchemy import ModelSchema
 from marshmallow_sqlalchemy.fields import fields
 # TODO
-from accounts import Account
-from role import AccountRole
-from portfolio import Portfolio
-from stock import Stock
+from .account import Account
+from .role import AccountRole
+from .portfolio import Portfolio
+from .stock import Stock
 
 
 class AccountRoleSchema(ModelSchema):

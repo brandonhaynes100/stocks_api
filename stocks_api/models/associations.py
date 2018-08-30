@@ -8,6 +8,11 @@ roles_association = Table(
     Column('role_id', Integer, ForeignKey('account_roles.id')),
 )
 
+portfolios_stocks_association = Table(
+    'portfolios_stocks_association',
+    metadata,
+    Column('stock_id', Integer, ForeignKey('stocks.id')),
+)
 
 # Equivalent to above
 # from .meta import Base

@@ -11,19 +11,6 @@ import json
 import os
 
 
-class NameLookupAPIView(APIViewSet):
-    def retrieve(self, request, name):
-        """
-        """
-        # TODO
-        url = ''.format(
-            request.matchdict['name'],
-            # TODO
-            ''
-        )
-        response = requests.get(url)
-
-
 class PortfolioAPIViewset(APIViewSet):
     # POST
     def create(self, request):

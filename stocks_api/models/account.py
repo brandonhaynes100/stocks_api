@@ -15,6 +15,7 @@ from sqlalchemy import (
     String,
     Text,
     DateTime,
+    ForeignKey,
 )
 
 
@@ -29,7 +30,8 @@ class Account(Base):
     # TODO
     # example code
     # locations = relationship(WeatherLocation, back_populates='accounts')
-    roles = relationship(AccountRole, secondary=roles_association, back_populates='accounts')
+    account_roles = relationship('AccountRole', secondary=roles_association, back_populates='accounts')
+    portfolios = relationship('Portfolio', back_populates='accounts')
 
     date_created = Column(DateTime, default=dt.now())
     date_updated = Column(DateTime, default=dt.now(), onupdate=dt.now())

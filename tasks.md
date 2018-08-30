@@ -14,7 +14,7 @@
 - [ ] For example, if a user registers with an email that’s already registered in the system you will send a 409 Conflict status code with an appropriate message in the response body
 
 ## Lab 12: Model Relationships
-- [ ] Using the diagram below as a guide update your models/ directory with the new account.py, role.py, and associations.py files, and create each of the tables
+- [x] Using the diagram below as a guide update your models/ directory with the new account.py, role.py, and associations.py files, and create each of the tables
 - [ ] Ensure that your model relationships are functional
 - [ ] Ensure that you’ve taken advantage of the SQLAlchemy relationship method to create additional functionality within your code base for accessing those new relationships
 - [ ] Add your new models to the Initialization Script, drop and recreate your DB, and initialize again with your new tables
