@@ -1,3 +1,4 @@
+from .stock import Stock
 from datetime import datetime as dt
 from sqlalchemy.orm import relationship
 from sqlalchemy.exc import DBAPIError
@@ -16,12 +17,14 @@ from .meta import Base
 class Portfolio(Base):
     __tablename__ = 'portfolios'
     id = Column(Integer, primary_key=True)
-    name = Column(Text, nullable=False)
+    name = Column(Text)
     date_created = Column(DateTime, default=dt.now())
     date_updated = Column(DateTime, default=dt.now(), onupdate=dt.now())
 
     account_id = Column(Integer, ForeignKey('accounts.id'), nullable=False)
-    account = relationship('Account', back_populates='portfolios')
+    accounts = relationship('Account', back_populates='portfolios')
+
+    stocks = relationship('Stock', back_populates='portfolios')
 
     @classmethod
     def new(cls, request=None, **kwargs):
@@ -48,4 +51,4 @@ class Portfolio(Base):
         return request.dbsession.query(cls).get(pk)
 
 
-Index('my_index', Portfolio.name, unique=True, mysql_length=255)
+# Index('my_index', Portfolio.name, unique=True, mysql_length=255)

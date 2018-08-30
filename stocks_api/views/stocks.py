@@ -1,6 +1,19 @@
 from pyramid_restful.viewsets import APIViewSet
 from pyramid.response import Response
 
+# TODO: Where does this go? (It's a view, not a model)
+# class SymbolLookupAPIView(APIViewSet):
+#     def retrieve(self, request, symbol):
+#         """
+#         """
+#         # TODO
+#         url = ''.format(
+#             request.matchdict['symbol'],
+#             # TODO
+#             ''
+#         )
+#         response = requests.get(url)
+
 
 class StockAPIViewset(APIViewSet):
     # GET one

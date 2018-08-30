@@ -8,6 +8,7 @@ requests = "*"
 pyramid = "*"
 stocks-api = {editable = true, path = ".", extras = ["testing"]}
 pyramid-restful-framework = "*"
+cryptacular = "*"
 
 [dev-packages]
 

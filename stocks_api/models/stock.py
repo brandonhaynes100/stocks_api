@@ -5,7 +5,8 @@ from sqlalchemy import (
     Index,
     Integer,
     Text,
-    DateTime
+    DateTime,
+    ForeignKey,
 )
 
 from .meta import Base
@@ -27,6 +28,9 @@ class Stock(Base):
     date_created = Column(DateTime)
     date_updated = Column(DateTime)
 
+    portfolios = relationship('Portfolio', back_populates='stocks')
+    portfolio_id = Column(Integer, ForeignKey('portfolios.id'), nullable=False)
+
     @classmethod
     def new(cls, request=None, **kwargs):
         """ new(): Create a single new instance of the Portfolio class
@@ -40,7 +44,7 @@ class Stock(Base):
         request.dbsession.add(portfolio)
 
         return request.dbsession.query(cls).filter(
-            cls.name == kwargs['name']).one_or_none()
+            cls.symbol == kwargs['symbol']).one_or_none()
 
     @classmethod
     def one(cls, request=None, pk=None):
@@ -60,4 +64,4 @@ class Stock(Base):
             cls.id == pk).delete()
 
 
-Index('my_index', Stock.name, unique=True, mysql_length=255)
+# Index('my_index', Stock.symbol, unique=True, mysql_length=255)
